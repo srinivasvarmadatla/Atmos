@@ -7,12 +7,16 @@ const Others = () => {
   const { bg, setLatitude, setLongitude, weatherData, textclr } = useContext(DataContext);
   const [inputLatitude, setInputLatitude] = useState('');
   const [inputLongitude, setInputLongitude] = useState('');
+  const [message, setMessage] = useState("Enter required data")
 
   const setData = (e) => {
+    setMessage("Loding weather data...")
     e.preventDefault();
     setLatitude(inputLatitude);
     setLongitude(inputLongitude);
   };
+
+
 
   return (
     <div className="Other" style={{ backgroundImage: `url(${bg})` }}>
@@ -31,9 +35,23 @@ const Others = () => {
         />
         <button type="submit">Get Weather</button>
       </form>
-      {weatherData ? <HomeCard weatherdata={weatherData} /> : <div className='loding_state'>
-        <p style={{ color: `${textclr}`, fontSize: '20px' }}>Loding data...</p><br />
-        <p style={{ color: `${textclr}`, fontSize: '20px' }}>Use this link for Coordinates<a href="https://developers.google.com/maps/documentation/geocoding/overview">LINK</a></p></div>}
+      {weatherData ? (
+        <HomeCard weatherdata={weatherData} />
+      ) : (
+        <div className='loading_state'>
+          <p style={{ color: `${textclr}`, fontSize: '20px' }}>Enter the required data</p>
+          <br />
+          {message === "Enter required data" ? (
+            <p style={{ color: `${textclr}`, fontSize: '20px' }}>
+              Use this link for Coordinates:
+              <a href="https://developers.google.com/maps/documentation/geocoding/overview" target="_blank" rel="noopener noreferrer">
+                LINK
+              </a>
+            </p>
+          ) : null}
+        </div>
+      )}
+
     </div>
   );
 };

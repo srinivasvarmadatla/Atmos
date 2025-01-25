@@ -39,7 +39,9 @@ export const DataProvider = ({ children }) => {
                     console.error(err.message);
                 }
             };
-            fetchCurrentWeatherData();
+            setTimeout(()=>{
+                fetchCurrentWeatherData();
+            },3000)
         }
     }, [currentLatitude, currentLongitude]);
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useContext } from 'react';
 import { DataProvider } from './context/Context';
 
 import './App.css';
