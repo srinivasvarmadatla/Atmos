@@ -13,11 +13,11 @@ import Footer from './components/Footer';
 function App() {
   return (
     <DataProvider>
-      <Router>
+      <Router basename='/Atmos'>
         <div className='App'>
           <Header />
           <Routes>
-            <Route path='/Atmos' element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path='/Others_weather' element={<Others />} />
             <Route path='/About' element={<About />} />
             <Route path='*' element={<Error />} />
