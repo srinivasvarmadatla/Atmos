@@ -19,7 +19,6 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Home" element={<Home />} />
             <Route path="/Others_weather" element={<Others />} />
             <Route path="/About" element={<About />} />
             <Route path="*" element={<Error />} />
