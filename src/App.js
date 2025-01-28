@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <DataProvider>
-      <Router basename="/Atmos">
+      <Router>
         <div className='App'>
           <Header />
           <Routes>
