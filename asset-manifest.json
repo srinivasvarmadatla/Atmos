@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Atmos/static/css/main.7fe72250.css",
-    "main.js": "/Atmos/static/js/main.dbed6e82.js",
+    "main.js": "/Atmos/static/js/main.9cd0879d.js",
     "static/media/landscape-4827278_1920.jpg": "/Atmos/static/media/landscape-4827278_1920.3f0beb4cd377970ff70d.jpg",
     "static/media/sunset-1117008_1280.jpg": "/Atmos/static/media/sunset-1117008_1280.8faa9d7e3a7a0e0c8a19.jpg",
     "index.html": "/Atmos/index.html",
     "main.7fe72250.css.map": "/Atmos/static/css/main.7fe72250.css.map",
-    "main.dbed6e82.js.map": "/Atmos/static/js/main.dbed6e82.js.map"
+    "main.9cd0879d.js.map": "/Atmos/static/js/main.9cd0879d.js.map"
   },
   "entrypoints": [
     "static/css/main.7fe72250.css",
-    "static/js/main.dbed6e82.js"
+    "static/js/main.9cd0879d.js"
   ]
 }
