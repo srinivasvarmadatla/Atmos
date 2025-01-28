@@ -1,27 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/Context";
 import HomeCard from "./HomeCard";
-import IPGeolocationAPI from "ip-geolocation-api-javascript-sdk";
 
 const Home = () => {
   const { setCurrentLatitude, setCurrentLongitude, currentWeatherData, bg, textclr } = useContext(DataContext);
 
-  const API_KEY = "1711f766ff044e969c8d06ea3efeec05";
-  const timezone = new IPGeolocationAPI();
-
-  const handleResponse = (response) => {
-    if (response && response.location) {
-      const { latitude, longitude } = response.location;
-      console.log("Latitude:", latitude);
-      console.log("Longitude:", longitude);
-    } else {
-      console.log("Failed to retrieve location data.");
-    }
-  };
-
-  timezone.getGeolocation(handleResponse, {}); // Fixed: using timezone here
+  const [message, setMessage] = useState("Loading weather data...");
 
   useEffect(() => {
+    // Use navigator.geolocation for client-side geolocation
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -30,18 +17,18 @@ const Home = () => {
         },
         (error) => {
           console.error(`Error: ${error.message}`);
+          setMessage("Unable to retrieve location.");
         }
       );
+    } else {
+      setMessage("Geolocation is not supported by this browser.");
     }
-  }, [setCurrentLatitude, setCurrentLongitude]);
 
-  const [message, setMessage] = useState("Loading weather data...");
-
-  useEffect(() => {
+    // Fallback message after a timeout
     setTimeout(() => {
       setMessage("Taking more than usual...");
     }, 10000);
-  });
+  }, [setCurrentLatitude, setCurrentLongitude]);
 
   return (
     <div className="Home" style={{ backgroundImage: `url(${bg})` }}>
