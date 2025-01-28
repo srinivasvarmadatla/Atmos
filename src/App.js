@@ -16,13 +16,14 @@ function App() {
       <Router basename="/Atmos">
         <div className="App">
           <Header />
-          <Routes>
-            <Route path="/" element={<Navigate to="/Home" />} />
-            <Route path="/Home" element={<Home />} />
-            <Route path="/Others_weather" element={<Others />} />
-            <Route path="/About" element={<About />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Others_weather" element={<Others />} />
+              <Route path="/About" element={<About />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </BrowserRouter>
           <Footer />
         </div>
       </Router>

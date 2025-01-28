@@ -6,7 +6,7 @@ const apiClient = axios.create({
 
 export const getWeatherData = async (lat, lon) => {
   try {
-    const apiKey="c35868b96f07e7b82a6196e353db5b0c";
+    const apiKey=process.env.REACT_APP_API_KEY;
     const response = await apiClient.get(`?lat=${lat}&lon=${lon}&appid=${apiKey}`);
     return response.data;
   } catch (error) {
