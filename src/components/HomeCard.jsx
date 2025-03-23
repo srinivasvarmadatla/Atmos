@@ -1,6 +1,7 @@
 import React from "react";
 import { DataContext } from "../context/Context";
 import { useContext } from "react";
+import { motion } from "framer-motion";
 
 const HomeCard = ({ weatherdata}) => {
   const {curTime,getWeatherIcon}=useContext(DataContext)
@@ -9,9 +10,27 @@ const HomeCard = ({ weatherdata}) => {
     const date = new Date((timestamp + timezoneOffset) * 1000);
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
+  const varient1={
+    init:{
+      opacity:0,
+      x:'70%'
+    },
+    end:{
+      opacity:1,
+      x:0,
+      transition:{
+        duration:1
+      }
+    }
+  }
 
   return (
-    <div className="card">
+    <motion.div 
+    variants={varient1}
+    initial="init"
+    animate="end"
+    layout
+    className="card">
       <div className="card_title">
         <div className="weather_img">
           {getWeatherIcon(weatherdata.weather[0].main)}
@@ -54,7 +73,7 @@ const HomeCard = ({ weatherdata}) => {
           | <strong>Sunset:</strong> {formatTime(weatherdata.sys.sunset, weatherdata.timezone)}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

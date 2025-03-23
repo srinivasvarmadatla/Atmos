@@ -1,7 +1,7 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap');
 
-body {
+body,html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -91,9 +91,11 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow: hidden;
 }
 
 .card {
+  position: relative;
   width: 90%;
   max-width: 55rem;
   min-width: 30rem;
@@ -106,7 +108,9 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  overflow: hidden;
 }
+
 
 .card_title {
   flex: 1;
@@ -220,6 +224,7 @@ p svg{
 
   .card {
     padding: 5px;
+    overflow: hidden;
   }
 
   .card_title h1 {
@@ -267,6 +272,7 @@ p svg{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
 }
 
 .about_card h2 {

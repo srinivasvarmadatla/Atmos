@@ -3,7 +3,7 @@ import { DataContext } from "../context/Context";
 import HomeCard from "./HomeCard";
 
 const Home = () => {
-  const { setCurrentLatitude, setCurrentLongitude, currentWeatherData,bg,textclr } = useContext(DataContext);
+  const {setCurrentLatitude, setCurrentLongitude, currentWeatherData,bg,textclr } = useContext(DataContext);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -17,11 +17,15 @@ const Home = () => {
   }, [setCurrentLatitude, setCurrentLongitude]);
 
   
+  
 
   return (
-    <div className="Home" style={{ backgroundImage: `url(${bg})` }}>
+    <div 
+    className="Home" style={{ backgroundImage: `url(${bg})` }}>
       {currentWeatherData ? (
-        <HomeCard weatherdata={currentWeatherData}/>
+        <HomeCard 
+        weatherdata={currentWeatherData}
+        />
       ) : (
         <p style={{ color:`${textclr}`, fontSize:'25px'}}>Loading weather content...</p>
       )}

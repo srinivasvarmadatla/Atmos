@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useContext } from 'react';
 import { DataProvider } from './context/Context';
 
 import './App.css';
@@ -18,7 +17,7 @@ function App() {
         <div className='App'>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
             <Route path="/Others_weather" element={<Others />} />
             <Route path="/About" element={<About />} />
             <Route path="*" element={<Error />} />
